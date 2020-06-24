@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display List Decoder</title>
+    <script src="DLDecode.js"></script>
+    <style>
+        .code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <label for="d-list">Input:</label>
+    <div>
+        <textarea name="d-list" id="d-list" cols="80" rows="20">
+            $B0,112,$70,$D6,$00,$30,$10,$D4,$00,$31
+            ,$D4,$80,$30,$D4,$80,$30,$D4,$40,$37,$D4
+            ,$C0,$35,$D4,$40,$33,$D4,$C0,$35,$D4,$40
+            ,$33,$D4,$C0,$37,$D4,$00,$35,$D4,$80,$30
+            ,$D4,$80,$30,$D4,$80,$30,$D4,$00,$3A
+            ,$84,$84,$84,$84,$84,$84,$84,$84
+            ,$20,$52,$00,$00,$41,$00,$00
+        </textarea>
+    </div>
+    <div>
+        <button onclick="decode()">Decode</button>
+    </div>
+    <div>Output:</div>
+    <pre class="code" id="output"></pre>
+</body>
+</html>
