@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,28 @@
         .code {
             font-family: 'Courier New', Courier, monospace;
         }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+        }
     </style>
 </head>
+
 <body>
     <label for="d-list">Input:</label>
-    <div>
-        <textarea name="d-list" id="d-list" cols="80" rows="20">
+    <div class="row">
+        <div class="column">
+            <textarea name="d-list" id="d-list" cols="80" rows="20">
             $B0,112,$70,$D6,$00,$30,$10,$D4,$00,$31
             ,$D4,$80,$30,$D4,$80,$30,$D4,$40,$37,$D4
             ,$C0,$35,$D4,$40,$33,$D4,$C0,$35,$D4,$40
@@ -23,11 +40,13 @@
             ,$84,$84,$84,$84,$84,$84,$84,$84
             ,$20,$52,$00,$00,$41,$00,$00
         </textarea>
+        </div>
+        <div class="column">
+            <button onclick="decode()">Decode</button>
+            <div>Output:</div>
+            <pre class="code" id="output"></pre>
+        </div>
     </div>
-    <div>
-        <button onclick="decode()">Decode</button>
-    </div>
-    <div>Output:</div>
-    <pre class="code" id="output"></pre>
 </body>
+
 </html>
