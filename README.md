@@ -12,3 +12,23 @@ The second is a web page, that can be opened in any browser. Open the index.html
 Screenshot of the HTML version:
 
 ![Screenshot](./screenshot.png)
+
+Here's the display list from ANALOG Magazine's game Fill 'er Up: The addresses to actual display memory have been mocked up, as we don't know what it would actually be
+
+```
+$70,$70,$70
+,$4D,$00,$10
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$D,$D,$D,$D,$D
+,$D,$D,$D,$D,$D,$20,$46
+,$00, $20
+,$46
+,$00, $30
+,$41,$00,$00
+```
