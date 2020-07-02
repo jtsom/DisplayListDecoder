@@ -10,7 +10,7 @@ function decode() {
     const JMP = 0x01;
 
     let source = document.getElementById('d-list').value;
-    let sourceByteChars = source.replace(/\s/g,'').split(',');
+    let sourceByteChars = source.replace(/\s/g, '').replace(',,',',').split(',');
 
     let sourceBytes = [];
 
@@ -80,9 +80,9 @@ function decode() {
         if (isDLI)
             outputString += "DLI ";
         if (mode >= 2 && mode <= 7)
-            outputString += `Text mode ${mode} `;
+            outputString += `Text mode ${mode} ${anticToBasic(mode)}`;
         if (mode >= 8 && mode <= 15)
-            outputString += `Gr. mode ${mode} `;
+            outputString += `Gr. mode ${mode} ${anticToBasic(mode)}`;
 
         console.log(outputString);
         addToOutput(outputString);
@@ -92,6 +92,55 @@ function decode() {
 
     // Output
 
+}
+
+function anticToBasic(mode) {
+    let basicMode = '';
+    switch (mode) {
+        case 2:
+            basicMode = '0';
+            break;
+        case 3:
+            basicMode = 'none';
+            break;
+        case 4:
+            basicMode = 'none (XL 12)';
+            break;
+        case 5:
+            basicMode = 'none (XL 13)';
+            break;
+        case 6:
+            basicMode = '1';
+            break;
+        case 7:
+            basicMode = '2';
+            break;
+        case 8:
+            basicMode = '3';
+            break;
+        case 9:
+            basicMode = '4';
+            break;
+        case 10:
+            basicMode = '5';
+            break;
+        case 11:
+            basicMode = '6';
+            break;
+        case 12:
+            basicMode = 'none (XL )14';
+            break;
+        case 13:
+            basicMode = '7';
+            break;
+        case 14:
+            basicMode = 'none (7+, XL 15)';
+            break;
+        case 15:
+            basicMode = '8';
+            break;
+    }
+    return `Basic ${basicMode}`;
 }
 
 function addToOutput(outputLine) {
