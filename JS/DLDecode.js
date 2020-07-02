@@ -10,7 +10,7 @@ function decode() {
     const JMP = 0x01;
 
     let source = document.getElementById('d-list').value;
-    let sourceByteChars = source.replaceAll(' ', '').replaceAll('\n', '').split(',');
+    let sourceByteChars = source.replace(/\s/g,'').split(',');
 
     let sourceBytes = [];
 
