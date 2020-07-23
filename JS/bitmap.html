@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitmap Decoder</title>
+    <script src="bitmap.js"></script>
+    <style>
+        #bits {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="bitmap" id="bitmap" cols="80" rows="20">
+        8,12,126,127,126,12,8,0,16,48,126,254,126,48,16,0
+    </textarea>
+    <canvas id="bits" width="160" height="320"></canvas>
+    <button onclick="draw()">Draw</button>
+</body>
+
+</html>

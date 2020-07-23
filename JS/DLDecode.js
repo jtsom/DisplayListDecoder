@@ -1,4 +1,4 @@
-// @ts-check
+
 function decode() {
 
     const modeMask = 0b00001111;
@@ -9,8 +9,8 @@ function decode() {
     const JVB = 0x41;
     const JMP = 0x01;
 
-    let source = document.getElementById('d-list').value;
-    let sourceByteChars = source.replace(/\s/g, '').replace(',,',',').split(',');
+    const source = document.getElementById('d-list').value;
+    const sourceByteChars = source.replace(/\s/g, '').replace(',,',',').split(',');
 
     let sourceBytes = [];
 
@@ -31,21 +31,21 @@ function decode() {
     while (pos < sourceBytes.length) {
         let b = sourceBytes[pos];
 
-        let mode = b & modeMask;
-        let isDLI = (b & DLIMask) == DLIMask;
-        let isLMS = (b & LMSMask) == LMSMask;
-        let isHScroll = (b & HScroll) == HScroll && mode != 0;
-        let isVScroll = (b & VScroll) == VScroll && mode != 0;
-        let isJVB = b == JVB;
-        let isJMP = b == JMP;
-        let bLines = ((b & 0b01110000) >> 4) + 1;
+        const mode = b & modeMask;
+        const isDLI = (b & DLIMask) == DLIMask;
+        const isLMS = (b & LMSMask) == LMSMask;
+        const isHScroll = (b & HScroll) == HScroll && mode != 0;
+        const isVScroll = (b & VScroll) == VScroll && mode != 0;
+        const isJVB = b == JVB;
+        const isJMP = b == JMP;
+        const bLines = ((b & 0b01110000) >> 4) + 1;
 
         outputString += `${b.toString().padStart(3, ' ')}  \$${b.toString(16).padStart(2, '0')} : `;
         if (isJVB) {
             outputString += "JVB ";
             if (isDLI)
                 outputString += "DLI ";
-            let addr = sourceBytes[pos + 1] + sourceBytes[pos + 2] * 256;
+            const addr = sourceBytes[pos + 1] + sourceBytes[pos + 2] * 256;
             pos += 3;
             outputString += `\$${addr.toString(16).padStart(4, '0')} `;
             console.log(outputString);
@@ -57,7 +57,7 @@ function decode() {
             outputString += "JMP ";
             if (isDLI)
                 outputString += "DLI ";
-            let addr = sourceBytes[pos + 1] + sourceBytes[pos + 2] * 256;
+            const addr = sourceBytes[pos + 1] + sourceBytes[pos + 2] * 256;
             pos += 3;
             outputString += `\$${addr.toString(16).padStart(4, '0')} `;
             console.log(outputString);
@@ -69,7 +69,7 @@ function decode() {
             outputString += `${bLines} Blank lines `;
         if (isLMS && mode != 0) {
             outputString += "LMS ";
-            let addr = sourceBytes[pos + 1] + sourceBytes[pos + 2] * 256;
+            const addr = sourceBytes[pos + 1] + sourceBytes[pos + 2] * 256;
             pos += 2;
             outputString += `\$${addr.toString(16).padStart(4, '0')} `;
         }
@@ -144,7 +144,7 @@ function anticToBasic(mode) {
 }
 
 function addToOutput(outputLine) {
-    let node = document.createElement('div');
+    const node = document.createElement('div');
     node.innerText = outputLine;
     document.getElementById('output').appendChild(node);
 }
