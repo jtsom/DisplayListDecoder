@@ -10,13 +10,18 @@
         #bits {
             border: 1px solid black;
         }
+        #bitmap {
+            font-family: Menlo, monospace;
+            font-size: 12pt;
+        }
     </style>
 </head>
 
 <body>
     <textarea name="bitmap" id="bitmap" cols="80" rows="20">
-        8,12,126,127,126,12,8,0,16,48,126,254,126,48,16,0
+8,12,126,127,126,12,8,0,16,48,126,254,126,48,16,0
     </textarea>
+    Height: <input type="text" id="e-height" value="8">
     <canvas id="bits" width="160" height="320"></canvas>
     <button onclick="draw()">Draw</button>
 </body>

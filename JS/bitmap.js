@@ -2,13 +2,16 @@ function draw() {
     const bits = document.getElementById("bits");
 
     const source = document.getElementById('bitmap').value;
+    const eHeight = parseInt(document.getElementById("e-height").value, 10);
+
     const sourceByteChars = source.replace(/\s/g, '').replace(',,', ',');
 
     const ctx = bits.getContext("2d");
 
     const dataArray = sourceByteChars.split(',');
 
-    bits.height = dataArray.length * 20;
+    bits.height = dataArray.length * 20 + eHeight * 20;
+    let yPos = 0;
 
     dataArray.forEach((byte, byteIndex) => {
         let sourceByte = '';
@@ -24,10 +27,10 @@ function draw() {
         x.split('').forEach((element, i) => {
             if (element === '1') {
                 const xPos = i * 20;
-                const yPos = byteIndex * 20;
-                ctx.fillRect(xPos, yPos, 20, 20);
+                ctx.fillRect(xPos, yPos * 20, 20, 20);
             }
         });
+        yPos += 1 + (((byteIndex + 1) % eHeight) === 0 ? 1 : 0);
     });
 
    //   for(i=0; i<8; i++){
