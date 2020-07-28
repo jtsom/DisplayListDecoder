@@ -12,28 +12,51 @@
         }
         #bitmap {
             font-family: Menlo, monospace;
-            font-size: 12pt;
+            font-size: 10pt;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+        }
+        .column-2 {
+            display: flex;
+            flex-direction: column;
+            width: 160px;
         }
     </style>
 </head>
 
 <body>
-    <textarea name="bitmap" id="bitmap" cols="80" rows="20">
-        254,214,254,16,124,108
-        ,108,238,254,214,254
-        ,16,124,108,236,14,254
-        ,214,254,16,124,236,12
-        ,14,254,214,254,16,124
-        ,108,236,14,254,214,254
-        ,16,124,108,108,238,254
-        ,214,254,16,124,108,110
-        ,224,254,214,254,16,124
-        ,110,96,224,254,214,254
-        ,16,124,108,110,224
-    </textarea>
-    Height: <input type="text" id="e-height" value="8">
-    <canvas id="bits" width="160" height="320"></canvas>
-    <button onclick="draw()">Draw</button>
+    <div class="row">
+        <div class="column">
+            <textarea name="bitmap" id="bitmap" cols="80" rows="20">
+                254,214,254,16,124,108
+                ,108,238,254,214,254
+                ,16,124,108,236,14,254
+                ,214,254,16,124,236,12
+                ,14,254,214,254,16,124
+                ,108,236,14,254,214,254
+                ,16,124,108,108,238,254
+                ,214,254,16,124,108,110
+                ,224,254,214,254,16,124
+                ,110,96,224,254,214,254
+                ,16,124,108,110,224
+            </textarea>
+            Height: <input type="text" id="e-height" value="8">
+        </div>
+        <div class="column-2">
+            <button onclick="draw()">Draw</button>
+            <canvas id="bits" width="160" height="320"></canvas>
+        </div>
+    </div>
+
 </body>
 
 </html>
