@@ -10,7 +10,12 @@ function draw() {
 
     const dataArray = sourceByteChars.split(',');
 
-    bits.height = (dataArray.length * 20) + (dataArray.length / eHeight * 20);
+    let height = (dataArray.length * 20);
+    if (eHeight > 0) {
+        height += (dataArray.length / eHeight * 20);
+    }
+    bits.height = height;
+
     let yPos = 0;
 
     dataArray.forEach((byte, byteIndex) => {
