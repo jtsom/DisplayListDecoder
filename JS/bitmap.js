@@ -4,7 +4,11 @@ function draw() {
     const source = document.getElementById('bitmap').value;
     const eHeight = parseInt(document.getElementById("e-height").value, 10);
 
-    const sourceByteChars = source.replace(/\s/g, '').replace(',,', ',');
+    let sourceByteChars = source.replace(/\s/g, '').replace(',,', ',').replace(';','');
+
+    if (sourceByteChars.substring(0, 1) === ',') {
+        sourceByteChars = sourceByteChars.substring(1);
+    }
 
     const ctx = bits.getContext("2d");
 
