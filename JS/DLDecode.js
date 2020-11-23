@@ -9,8 +9,13 @@ function decode() {
     const JVB = 0x41;
     const JMP = 0x01;
 
-    const source = document.getElementById('d-list').value;
-    const sourceByteChars = source.replace(/\s/g, '').replace(',,',',').split(',');
+    let source = document.getElementById('d-list').value;
+
+    if (source.substring(0, 1) === ',') {
+        source = source.substring(1);
+    }
+
+    const sourceByteChars = source.replace(/\s/g, '').replace(',,', ',').split(',');
 
     let sourceBytes = [];
 
